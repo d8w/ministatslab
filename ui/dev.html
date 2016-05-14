@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="ministatsApp">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<!-- ================================================================ -->
+<!-- NOTE you must specify the right order of js's loading  sequence. --> 
+<!-- The dependent js's must proceed the js' that depends on the former. -->
+<!-- =============================================================== -->
+
+<!-- load angular and dependent libraries -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+<!-- load Mini-Statslab modules -->
+<script src="app.js"></script>
+<link rel="stylesheet" href="ministats.css">
+
+<!-- load IPE apps -->
+<!-- demo -->
+<script src="demo/ministats-main-app.js"></script>
+
+</head>
+
+<body>
+	<div ui-view></div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "ministatslab",
+  "version": "0.0.0",
+  "authors": [
+  ],
+  "description": "Mini-Statslab",
+  "main": "dev.html",
+  "license": "BSD",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "event/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angular-ui-router": "~0.2.11"
+  }
+}
