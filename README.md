@@ -98,24 +98,6 @@ We should see following folder/file hierarchy
     * README.md - this file
     * ui        - static web content: javascript, css, HTML 
 
-# Launch Eve
-```bash
-$ python run.py
-```
-
-# APIs
-
-## Testing api
-To test if the API server is up and running, do
-```bash
-curl http://127.0.0.1:5000/api
-{"_links": {"child": [{"href": "image", "title": "image"}]}}
-```
-Eve should spit out something like this
-```
-127.0.0.1 - - [19/Apr/2016 14:53:38] "GET /api HTTP/1.1" 200 -
-```
-
 # UI
 ## Initializing Niginx
 
@@ -166,8 +148,40 @@ tcp6       0      0 :::3000                 :::*                    LISTEN      
 ## Reload
 To reload Nginx after editing its configuration, do
 ```bash
-# on gpu1
 $ nginx -c /path/to/nginx/etc/nginx.conf -s reload
+```
+
+# Fronend development environment setup
+Change directory to /path/to/ministatslab/ui/, and run
+
+```bash
+$ bower install
+```
+
+This command downloads jabascript libraries and puts them in ```bower_component``` subfolder.
+
+After this, Nginx and UI are up and running.
+Point your browser to [http://127.0.0.1:3000/dev.html](http://127.0.0.1:3000/dev.html), and you should see this message if everything goes smoothly:
+
+> If you're seeing this page, you've successfully lauched Nginx and UI. Congratulations!
+
+# Launch Eve
+Now, we fire up the RESTful API service
+```bash
+$ python run.py
+```
+
+# APIs
+
+## Testing api
+To test if the API server is up and running, you can run the following commands in a terminal (assuming you have curl installed)
+```bash
+curl http://127.0.0.1:5000/api
+{"_links": {"child": [{"href": "image", "title": "image"}]}}
+```
+Eve should spit out something like this
+```
+127.0.0.1 - - [19/Apr/2016 14:53:38] "GET /api HTTP/1.1" 200 -
 ```
 
 # Access the web interface
