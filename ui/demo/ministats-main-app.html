@@ -3,5 +3,20 @@
 
         If you're seeing this page, you've successfully lauched Nginx and UI. Congratulations!
 
+        <form>
+            <fieldset class="form-group">
+                <label for="x">X</label>
+                <input type="text" class="form-control" id="x" ng-model="form.x"
+                    placeholder="Enter an array of numbers, e.g. [1, 3, 2.2]">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="y">Y</label>
+                <input type="text" class="form-control" id="y" ng-model="form.y"
+                    placeholder="Enter an array of numbers, e.g. [1, 3, 2.2]">
+            </fieldset>
+
+            <button type="submit" class="btn btn-primary" ng-click="submit()">Submit</button>
+        </form>
+
     </div>
 </div>
