@@ -8,7 +8,9 @@ Although most code can run in both Linux and Windows without modification, Mini-
 # Dependencies
 Mini-statslab requires following software
 
-* Python 2.6+
+* Python 2.7+
+   * numpy
+   * scipy
 * [python-virtualenv](https://virtualenv.pypa.io/en/latest/index.html) (optional but strongly recommended)
 * npm   - a package manager for Javascript
 * Bower - a package manager for Javascript
@@ -49,6 +51,12 @@ Run the following command as an administrator,
 ##  Eve setup
 ```bash
 $ pip install eve
+```
+
+##  Scipy and numpy setup
+```bash
+$ pip install numpy
+$ pip install scipy
 ```
 
 ## MongoDB setup
@@ -177,11 +185,22 @@ $ python run.py
 To test if the API server is up and running, you can run the following commands in a terminal (assuming you have curl installed)
 ```bash
 curl http://127.0.0.1:5000/api
-{"_links": {"child": [{"href": "image", "title": "image"}]}}
+
+{"_links": {"child": [{"href": "linregress", "title": "linregress"}]}}
 ```
 Eve should spit out something like this
 ```
 127.0.0.1 - - [19/Apr/2016 14:53:38] "GET /api HTTP/1.1" 200 -
+```
+
+## Testing linregress
+* linregress calculates a regression line.
+* Inputs:
+    * x: an array of numbers, e.g. [ 0.29998503,  0.25058272,  0.62110361,  0.09335537,  0.23726673]
+    * y: an array of numbers, e.g. [0.14620198,  0.29766358,  0.42221104,  0.27356068,  0.21425566]
+
+```bash
+curl http://127.0.0.1:5000/api/linregress
 ```
 
 # Access the web interface

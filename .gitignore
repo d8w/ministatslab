@@ -5,3 +5,4 @@ bower_components/
 nginx/tmp/
 nginx/log/  
 nginx/var/
+db/
