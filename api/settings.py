@@ -20,7 +20,7 @@ RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 
 linregress = {
-    'resource_methods': ['GET', 'POST'],
+    'resource_methods': ['GET','POST'],
     'schema': {
         'x': {'type': 'list'},
         'y': {'type': 'list'}

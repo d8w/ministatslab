@@ -11,6 +11,7 @@ Mini-statslab requires following software
 * Python 2.7+
    * numpy
    * scipy
+   * pymongo
 * [python-virtualenv](https://virtualenv.pypa.io/en/latest/index.html) (optional but strongly recommended)
 * npm   - a package manager for Javascript
 * Bower - a package manager for Javascript
@@ -48,15 +49,12 @@ Run the following command as an administrator,
 # npm install -g bower
 ```
 
-##  Eve setup
+##  Python library setup
 ```bash
 $ pip install eve
-```
-
-##  Scipy and numpy setup
-```bash
 $ pip install numpy
 $ pip install scipy
+$ pip install mongodb
 ```
 
 ## MongoDB setup
@@ -194,14 +192,33 @@ Eve should spit out something like this
 ```
 
 ## Testing linregress
+* a POST request
 * linregress calculates a regression line.
 * Inputs:
     * x: an array of numbers, e.g. [0.29998503,  0.25058272,  0.62110361,  0.09335537,  0.23726673]
     * y: an array of numbers, e.g. [0.14620198,  0.29766358,  0.42221104,  0.27356068,  0.21425566]
 
 ```bash
-curl http://127.0.0.1:5000/api/linregress
+curl -X POST -H "Content-Type: application/json" --data '{"x":[1,2,3], "y":[-1,-2,-3]}'  http://127.0.0.1:5000/api/linregress
 ```
+
+The server replies a message similar as below if it's succesful
+```
+{"_updated": "Mon, 16 May 2016 19:11:55 GMT", "_links": {"self": {"href": "linregress/573a1b7be3c4537277db05f2", "title": "Linregre"}}, "_created": "Mon, 16 May 2016 19:11:55 GMT", "_status": "OK", "_id": "573a1b7be3c4537277db05f2", "_etag": "d79d0dcc1004bbde55b38d1f78d2eda8aab238f2"}
+```
+
+To retrieve the results, send a GET request to the server on the resource ```linregress/573a1b7be3c4537277db05f2```
+
+For example
+```bash
+curl -i http://localhost:5000/api/linregress/573a1b7be3c4537277db05f2
+```
+
+And you should see like:
+```
+{"_updated": "Mon, 16 May 2016 19:11:55 GMT", "_links": {"self": {"href": "linregress/573a1b7be3c4537277db05f2", "title": "Linregre"}, "collection": {"href": "linregress", "title": "linregress"}, "parent": {"href": "/", "title": "home"}}, "x": [1, 2, 3], "y": [-1, -2, -3], "_created": "Mon, 16 May 2016 19:11:55 GMT", "_id": "573a1b7be3c4537277db05f2", "_etag": "d79d0dcc1004bbde55b38d1f78d2eda8aab238f2"}
+```
+
 
 # Access the web interface
 Use ssh tunnels to forward ports:
