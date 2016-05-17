@@ -6,9 +6,15 @@ ministatsDemoApp
 
     $scope.form = {
         x: getRandoms(5),
-        y: getRandoms(5)
+        y: getRandoms(5),
+        length: 5
     };
     $scope.submitted = false;
+
+    $scope.generate = function() {
+        $scope.form.x = getRandoms($scope.form.length);
+        $scope.form.y = getRandoms($scope.form.length);
+    }
 
     $scope.submit = function() {
         if($scope.submitted)
@@ -51,7 +57,7 @@ ministatsDemoApp
                             };
                             var data = [trace1, trace2];
 
-                            Plotly.newPlot('linregress.node', data);
+                            Plotly.newPlot('linregress.node', data, {'title': 'Result'});
                         }
                         $scope.submitted = false;
                     },function(error){
