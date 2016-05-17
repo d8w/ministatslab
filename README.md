@@ -1,5 +1,8 @@
 [Mini-Statslab](https://github.com/d8w/ministatslab) - an example web application of statistic tools 
 
+![screen shot 2016-05-17 at 4 20 18 pm](https://cloud.githubusercontent.com/assets/9220766/15337805/54bb1e3c-1c4b-11e6-86c7-b07bd8037914.png)
+
+
 [TOC]
 
 A note to Windows developers:
