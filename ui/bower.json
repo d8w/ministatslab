@@ -1,8 +1,7 @@
 {
   "name": "ministatslab",
   "version": "0.0.0",
-  "authors": [
-  ],
+  "authors": [],
   "description": "Mini-Statslab",
   "main": "dev.html",
   "license": "BSD",

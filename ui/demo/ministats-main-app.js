@@ -31,7 +31,28 @@ ministatsDemoApp
 
                 $http(request)
                     .then(function(success){
-                        console.log(success);
+                        if(success.data.result) {
+                            var res = success.data.result;
+                            // Plot result
+                            // TODO use a directive
+                            var trace1 = {
+                                  x: $scope.form.x,
+                                  y: $scope.form.y,
+                                  mode: 'markers',
+                                  type: 'scatter'
+                            };
+                            var Y = [];
+                            $scope.form.x.forEach(function(e){
+                                Y.push(res.slope * e + res.intercept);
+                            });
+                            var trace2 = {
+                                  x: $scope.form.x,
+                                  y: Y
+                            };
+                            var data = [trace1, trace2];
+
+                            Plotly.newPlot('linregress.node', data);
+                        }
                         $scope.submitted = false;
                     },function(error){
                         console.log(error);
