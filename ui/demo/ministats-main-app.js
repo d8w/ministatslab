@@ -5,8 +5,8 @@ ministatsDemoApp
 .controller('ministatsDemoAppCtrl', [ '$scope','$http', function($scope, $http) { 
 
     $scope.form = {
-        x: [0.29998503,  0.25058272,  0.62110361,  0.09335537,  0.23726673],
-        y: [0.14620198,  0.29766358,  0.42221104,  0.27356068,  0.21425566]
+        x: getRandoms(5),
+        y: getRandoms(5)
     };
     $scope.submitted = false;
 
@@ -42,6 +42,20 @@ ministatsDemoApp
                 console.log(error);
                 $scope.submitted = false;
             });
-    }
+    };
+
+    /**
+     * Generate an array of <length> float numbers between 0 and 1.
+     */
+    function getRandoms(length) {
+        var r = [];
+        if (typeof length !== 'number' || length < 1)
+            length = 1;
+
+        for(var i=0; i<length; i++)
+            r.push(Math.random())
+
+        return r;
+    };
 
 }]);
