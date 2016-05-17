@@ -2,7 +2,7 @@
 
 ministatsDemoApp
 
-.controller('ministatsDemoAppCtrl', [ '$scope','$http', '$timeout', function($scope, $http, $timeout) { 
+.controller('ministatsDemoAppCtrl', [ '$scope','$http', function($scope, $http) { 
 
     $scope.form = {
         x: [0.29998503,  0.25058272,  0.62110361,  0.09335537,  0.23726673],
@@ -23,10 +23,12 @@ ministatsDemoApp
 
         $http(request)
             .then(function(success){
+                // Retrieve the result
                 request = {
                     method  : 'GET',
                     url     : success.config.url + '/' + success.data._id
                 }
+
                 $http(request)
                     .then(function(success){
                         console.log(success);
@@ -35,6 +37,7 @@ ministatsDemoApp
                         console.log(error);
                         $scope.submitted = false;
                     });
+
             }, function(error){
                 console.log(error);
                 $scope.submitted = false;

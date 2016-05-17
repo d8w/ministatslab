@@ -23,7 +23,8 @@ linregress = {
     'resource_methods': ['GET','POST'],
     'schema': {
         'x': {'type': 'list'},
-        'y': {'type': 'list'}
+        'y': {'type': 'list'},
+        'result': {'type': 'dict'},
     }
 }
 
